@@ -1,0 +1,28 @@
+<html>
+    <body>
+	<h1>Order Something</h1>
+      	<div id="fb-root"></div>
+      	<script src="http://connect.facebook.net/en_US/all.js"></script>
+	<a href="#" onclick="order_something(); return false;">Order something...</a>
+
+	<script> 
+    	FB.init({appId: 170669746307500, status: true, cookie: true});
+
+    	function order_something() {
+
+		var order_info = 'someID12345';
+
+      		// calling the API ...
+      		FB.ui({
+        		method: 'pay',
+        		order_info: order_info,
+        		purchase_type: 'item'
+      		},
+		function(data) {
+			console.debug(data);
+		});
+
+    	}
+	</script>
+</body>
+</html>
